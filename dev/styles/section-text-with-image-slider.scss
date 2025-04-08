@@ -1,0 +1,259 @@
+.s-text-with-image-slider{
+  display: block;
+
+  &__title{
+    margin: 0;
+    color: #231F20;
+    font-family: var(--custom-font);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+    letter-spacing: -0.28px;
+    text-transform: uppercase;
+
+    @media screen and (min-width:768px) {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__content-wrapper{
+    margin: 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    
+    @media screen and (min-width:768px) {
+      margin: 60px 0 0;
+      flex-direction: row;
+      position: relative;
+    }
+  }
+
+  &__slider,
+  &__block-titles{
+    width: 100%;
+
+    @media screen and (min-width:768px) {
+      max-width: 50%;
+    }
+  }
+
+  &__slider{
+
+    @media screen and (max-width:769px) {
+      position: relative;
+    }
+
+    &, & .flickity-viewport:focus-visible,
+    & .flickity-slider:focus-visible{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__block-titles{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+
+    transition: background-color 250ms;
+
+    @media screen and (min-width: 768px) {
+      row-gap: 40px;
+    }
+  }
+
+  &__block-title{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-size: 23px;
+    font-family: var(--custom-font);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 250ms;
+
+    @media screen and (min-width: 768px) {
+      row-gap: 40px;
+      font-size: 40px;
+    }
+
+    &.is-active{
+      color: #fff;
+      text-decoration: underline; 
+      text-decoration-thickness: 1px;
+      text-underline-offset: 7px;
+      
+      @media screen and (min-width: 768px) {
+        text-underline-offset: 10px;
+      }
+    }
+  }
+
+  &__slide-wrapper{
+    width: 100%;
+  }
+
+  &__slide-inner{
+    position: relative;
+  }
+
+  &__image{
+    width: 100%;
+    height: 100%;
+
+    & > img{
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+  }
+
+  &__text{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 250px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 335px;
+    }
+
+    &--alignment--top{
+      top: 10%;
+
+      @media screen and (min-width: 768px) {
+        top: 20%;
+      }
+    }
+
+    &--alignment--middle{
+      top: 50%;
+      transform: translate(-50% -50%);
+    }
+
+    &--alignment--bottom{
+      bottom: 10%;
+
+      @media screen and (min-width: 768px) {
+        bottom: 20%;
+      }
+    }
+    
+    & p{
+      margin: 10px 0;
+      color: #FFF;
+      text-align: center;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__dots-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 6px;
+  }
+
+  &__dot{
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: transparent;
+
+    outline-offset: -1px;
+    outline: 1px solid #fff;
+    
+    &.is-selected{
+      background-color: #fff;
+    }
+  }
+
+  &__arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 4px;
+    border-radius: 4px;
+    background: #0E0C0C;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity 250ms;
+
+    @media screen and (min-width: 768px) {
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+
+    &--prev{
+      left: 2px;
+      
+      @media screen and (min-width: 768px) {
+        left: 60px;
+      }
+    }
+
+    &--next{
+      right: 2px;
+
+      @media screen and (min-width: 768px) {
+        right: 60px;
+      }
+
+      & > svg{
+        transform: rotate(180deg);
+      }
+    }
+
+    &--desktop{
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+      } 
+    }
+
+    &--mobile{
+    
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &.is-disabled{
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    &.is-hidden{
+      display: none !important;
+    }
+  }
+}
